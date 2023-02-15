@@ -1,6 +1,7 @@
 const express  = require('express');
 const app = express();
-
+require('dotenv').config();
+console.log(process.env)
 const SpotifyWebApi = require('spotify-web-api-node');
 
 
@@ -32,8 +33,8 @@ const scopes = ["ugc-image-upload",
     "user-read-private"]
 
 const spotifyapi = new SpotifyWebApi({
-    clientId : "8c301f4598d24db2ad0a27bfd371c9e4",
-    clientSecret : "be3941afb67047f786235c58571e3d8b",
+    clientId : process.env.clientid,
+    clientSecret : process.env.clientsecret,
     redirectUri : "http://localhost:8000/callback"
 })
 
